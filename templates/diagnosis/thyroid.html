@@ -1,0 +1,107 @@
+{% extends 'diagnosis/base.html' %}
+
+{% block title %}Thyroid Disease{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Thyroid Disorder Analysis</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label>Age</label>
+            <input type="number" name="age" required>
+        </div>
+
+        <div class="form-group">
+            <label>Sex</label>
+            <select name="sex" required>
+                <option value="">Select</option>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>On Thyroxine Medication</label>
+            <select name="on_thyroxine" required>
+                <option value="">Select</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>On Anti-thyroid Medication</label>
+            <select name="on_antithyroid_medication" required>
+                <option value="">Select</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Pregnant</label>
+            <select name="pregnant" required>
+                <option value="">Select</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Thyroid Surgery History</label>
+            <select name="thyroid_surgery" required>
+                <option value="">Select</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Query Hypothyroid</label>
+            <select name="query_hypothyroid" required>
+                <option value="">Select</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Query Hyperthyroid</label>
+            <select name="query_hyperthyroid" required>
+                <option value="">Select</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>TSH (Thyroid Stimulating Hormone)</label>
+            <input type="number" step="any" name="TSH" required>
+        </div>
+
+        <div class="form-group">
+            <label>TT4 (Total Thyroxine)</label>
+            <input type="number" step="any" name="TT4" required>
+        </div>
+
+        <div class="form-group">
+            <label>T4U (Thyroxine Uptake)</label>
+            <input type="number" step="any" name="T4U" required>
+        </div>
+
+        <div class="form-group">
+            <label>FTI (Free Thyroxine Index)</label>
+            <input type="number" step="any" name="FTI" required>
+        </div>
+
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if result %}
+    <div class="result-box">{{ result }}</div>
+    {% endif %}
+</div>
+{% endblock %}

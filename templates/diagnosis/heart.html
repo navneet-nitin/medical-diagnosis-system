@@ -1,0 +1,45 @@
+{% extends 'diagnosis/base.html' %}
+
+{% block title %}Heart Disease{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Heart Disease Analysis</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label>Age (years)</label>
+            <input name="age" required>
+        </div>
+
+        <div class="form-group">
+            <label>Sex</label>
+            <select name="sex" required>
+                <option value="">Select</option>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+            </select>
+        </div>
+
+        <div class="form-group"><label>Chest Pain Type (cp)</label><input name="cp" required></div>
+        <div class="form-group"><label>Resting Blood Pressure (trestbps)</label><input name="trestbps" required></div>
+        <div class="form-group"><label>Serum Cholesterol (chol)</label><input name="chol" required></div>
+        <div class="form-group"><label>Fasting Blood Sugar >120 (fbs)</label><input name="fbs" required></div>
+        <div class="form-group"><label>Rest ECG (restecg)</label><input name="restecg" required></div>
+        <div class="form-group"><label>Max Heart Rate (thalach)</label><input name="thalach" required></div>
+        <div class="form-group"><label>Exercise Angina (exang)</label><input name="exang" required></div>
+        <div class="form-group"><label>ST Depression (oldpeak)</label><input name="oldpeak" required></div>
+        <div class="form-group"><label>Slope (slope)</label><input name="slope" required></div>
+        <div class="form-group"><label>Major Vessels (ca)</label><input name="ca" required></div>
+        <div class="form-group"><label>Thalassemia (thal)</label><input name="thal" required></div>
+
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if result %}
+        <div class="result-box">{{ result }}</div>
+    {% endif %}
+</div>
+{% endblock %}

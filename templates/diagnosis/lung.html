@@ -1,0 +1,139 @@
+{% extends 'diagnosis/base.html' %}
+
+{% block title %}Lung Disease{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Lung Disease Analysis</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label>Alcohol Use</label>
+            <select name="alcohol_use" required>
+                <option value="">Select</option>
+                {% for i in "12345678" %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Dust Allergy</label>
+            <select name="dust_allergy" required>
+                <option value="">Select</option>
+                {% for i in "12345678" %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Balanced Diet</label>
+            <select name="balanced_diet" required>
+                <option value="">Select</option>
+                {% for i in "12345678" %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Obesity</label>
+            <select name="obesity" required>
+                <option value="">Select</option>
+                {% for i in "12345678" %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Smoking</label>
+            <select name="smoking" required>
+                <option value="">Select</option>
+                {% for i in "12345678" %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Passive Smoker</label>
+            <select name="passive_smoker" required>
+                <option value="">Select</option>
+                {% for i in "12345678" %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Coughing Of Blood</label>
+            <select name="coughing_of_blood" required>
+                <option value="">Select</option>
+                {% for i in "12345678" %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Fatigue</label>
+            <select name="fatigue" required>
+                <option value="">Select</option>
+                {% for i in "12345678" %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Shortness Of Breath</label>
+            <select name="shortness_of_breath" required>
+                <option value="">Select</option>
+                {% for i in "12345678" %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Wheezing</label>
+            <select name="wheezing" required>
+                <option value="">Select</option>
+                {% for i in "12345678" %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Swallowing Difficulty</label>
+            <select name="swallowing_difficulty" required>
+                <option value="">Select</option>
+                {% for i in "12345678" %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Clubbing Of Finger Nails</label>
+            <select name="clubbing_of_finger_nails" required>
+                <option value="">Select</option>
+                {% for i in "12345678" %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if result %}
+    <div class="result-box">{{ result }}</div>
+    {% endif %}
+</div>
+{% endblock %}

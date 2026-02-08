@@ -1,0 +1,6 @@
+Django==6.0.2
+numpy
+pandas
+scikit-learn
+joblib
+gunicorn

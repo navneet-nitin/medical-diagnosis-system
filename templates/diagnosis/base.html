@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Medical Diagnosis{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'diagnosis/style.css' %}">
+</head>
+<body>
+
+<header>
+    <h1>AI Medical Diagnosis System</h1>
+    <p>Intelligent • Reliable • Early Detection</p>
+
+    {% if user.is_authenticated %}
+        <form method="post" action="/logout/" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="header-btn">Logout</button>
+        </form>
+    {% else %}
+        <a href="/login/"><button class="header-btn">Login</button></a>
+        <a href="/signup/"><button class="header-btn">Sign Up</button></a>
+    {% endif %}
+</header>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% extends 'diagnosis/base.html' %}
+
+{% block title %}Kidney Disease{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Kidney Disease Analysis</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="form-group"><label>Blood Pressure (Bp)</label><input name="Bp" required></div>
+        <div class="form-group"><label>Specific Gravity (Sg)</label><input name="Sg" required></div>
+        <div class="form-group"><label>Albumin (Al)</label><input name="Al" required></div>
+        <div class="form-group"><label>Sugar (Su)</label><input name="Su" required></div>
+        <div class="form-group"><label>Red Blood Cells (Rbc)</label><input name="Rbc" required></div>
+        <div class="form-group"><label>Blood Urea (Bu)</label><input name="Bu" required></div>
+        <div class="form-group"><label>Serum Creatinine (Sc)</label><input name="Sc" required></div>
+        <div class="form-group"><label>Sodium (Sod)</label><input name="Sod" required></div>
+        <div class="form-group"><label>Potassium (Pot)</label><input name="Pot" required></div>
+        <div class="form-group"><label>Hemoglobin (Hemo)</label><input name="Hemo" required></div>
+        <div class="form-group"><label>WBC Count (Wbcc)</label><input name="Wbcc" required></div>
+        <div class="form-group"><label>RBC Count (Rbcc)</label><input name="Rbcc" required></div>
+        <div class="form-group"><label>Hypertension (Htn)</label><input name="Htn" required></div>
+
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if result %}
+        <div class="result-box">{{ result }}</div>
+    {% endif %}
+</div>
+{% endblock %}
